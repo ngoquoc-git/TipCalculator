@@ -20,16 +20,15 @@
     <EditText
         android:id="@+id/amount_bill"
         style="@style/InputStyle"
-        android:layout_width="250dp"
-        android:layout_height="50dip"
-        android:textSize="25dp"
-        android:layout_alignBottom="@+id/label_bill"
-        android:layout_constraintRight_toRightOf="@+id/label_bill"
         android:layout_marginRight="20dp"
         android:layout_toRightOf="@+id/label_bill"
+        android:layout_alignBottom="@+id/label_bill"
+        android:layout_alignParentRight="true"
         android:hint="@string/amount_bill_hint"
         android:inputType="numberDecimal"
-        android:paddingLeft="5dp"/>
+        android:layout_width="250dp"
+        android:layout_height="50dip"
+        android:textSize="25dp"/>
     <TextView
         android:id="@+id/label_tip_percent"
         style="@style/LabelStyle"
