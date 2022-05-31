@@ -7,10 +7,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.example.lab1_tipcalculator.TipCalculator;
-
 import java.text.NumberFormat;
+import com.example.lab1_tipcalculator.TipCalculator;
 
 public class MainActivity extends AppCompatActivity {
     private TipCalculator tipCalc;
@@ -27,24 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculate(View v) {
         billEditText = (EditText) findViewById(R.id.amount_bill);
-        tipEditText = ___________________________________________
+        tipEditText = (EditText) findViewById(R.id.amount_tip_percent);
         String billString = billEditText.getText().toString();
-        String tipString = _____________________________________
+        String tipString = tipEditText.getText().toString();
         TextView tipTextView = (TextView) findViewById(R.id.amount_tip);
-        TextView totalTextView =__________________________________________
+        TextView totalTextView = (TextView) findViewById(R.id.amount_total);
         try {
             // convert billString and tipString to floats
             float billAmount = Float.parseFloat(billString);
-            int tipPercent = _____________________________
+            int tipPercent = Integer.parseInt(tipString);
             // update the Model
-            tipCalc.setBill(___________________);
+            tipCalc.setBill(billAmount);
             tipCalc.setTip(.01f * tipPercent);
             // ask Model to calculate tip and total amounts
-            float tip = _______________________
-            float total = _____________________
+            float tip = tipCalc.tipAmount();
+            float total = tipCalc.totalAmount();
             // update the View with formatted tip and total amounts
             tipTextView.setText(money.format(tip));
-            ______________________________________
+            totalTextView.setText(money.format(total));
         } catch (NumberFormatException nfe) {
             // pop up an alert view here (optional)
         }
